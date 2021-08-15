@@ -83,9 +83,14 @@ function App() {
         setcashDiv(cashDivValue);
       }
     } else {
-      if (Number(cash) <= Number(bill)) {
+      if (Number(cash) < Number(bill)) {
         set();
         setCashError(<p>Cash is less than bill, please enter right amount</p>);
+      }else if(Number(bill)<0){
+        set();
+        setCashError(<p>Bill cannot be negative.</p>);
+
+
       } else {
         setCashError("");
         let num = cash - bill;
